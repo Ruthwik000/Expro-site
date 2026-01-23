@@ -1,7 +1,33 @@
-import React, { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const sectionsRef = useRef([]);
+
+  useEffect(() => {
+    sectionsRef.current.forEach((section) => {
+      if (section) {
+        gsap.fromTo(
+          section,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 85%',
+            },
+          }
+        );
+      }
+    });
+  }, []);
 
   const faqs = [
     {
@@ -131,21 +157,34 @@ const FAQ = () => {
   let questionIndex = 0;
 
   return (
-    <div className="py-16">
-      <section className="container-custom mb-16">
-        <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h1>
-          <p className="text-xl text-gray-600">
-            Find answers to common questions about ExPro
-          </p>
+    <div className="bg-black min-h-screen">
+      {/* Hero */}
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div className="container-custom relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black font-mono text-white mb-6 uppercase tracking-tight">
+              FAQ
+            </h1>
+            <p className="text-xl text-gray-500 font-mono">
+              Find answers to common questions about ExPro
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="container-custom">
+      {/* FAQ Categories */}
+      <section className="container-custom pb-20">
         <div className="max-w-4xl mx-auto">
           {faqs.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="mb-12">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">{category.category}</h2>
+            <div 
+              key={categoryIndex} 
+              ref={el => sectionsRef.current[categoryIndex] = el}
+              className="mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl font-black font-mono text-white mb-8 uppercase tracking-tight border-l-4 border-gray-700 pl-6">
+                {category.category}
+              </h2>
               <div className="space-y-4">
                 {category.questions.map((faq) => {
                   const currentIndex = questionIndex++;
@@ -154,26 +193,29 @@ const FAQ = () => {
                   return (
                     <div
                       key={currentIndex}
-                      className="bg-white border border-gray-200 rounded-lg overflow-hidden"
+                      className="group bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl overflow-hidden hover:border-blue-500/50 transition-all duration-300"
                     >
                       <button
                         onClick={() => toggleQuestion(currentIndex)}
-                        className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+                        className="w-full px-6 py-5 text-left flex justify-between items-center"
                       >
-                        <span className="font-semibold text-gray-900 pr-8">{faq.q}</span>
+                        <span className="font-bold font-mono text-white pr-8 group-hover:text-blue-400 transition-colors duration-300">
+                          {faq.q}
+                        </span>
                         <svg
-                          className={`w-5 h-5 text-gray-500 transition-transform flex-shrink-0 ${
+                          className={`w-5 h-5 text-gray-500 group-hover:text-blue-400 transition-all duration-300 flex-shrink-0 ${
                             isOpen ? 'transform rotate-180' : ''
                           }`}
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
+                          strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                       </button>
                       {isOpen && (
-                        <div className="px-6 pb-4 text-gray-700">
+                        <div className="px-6 pb-5 text-gray-400 font-mono text-sm leading-relaxed border-t border-gray-800/50 pt-4">
                           {faq.a}
                         </div>
                       )}
@@ -186,18 +228,31 @@ const FAQ = () => {
         </div>
       </section>
 
-      <section className="container-custom py-16">
-        <div className="bg-gradient-to-r from-primary-50 to-blue-50 rounded-2xl p-12 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Still have questions?</h2>
-          <p className="text-lg text-gray-700 mb-8">
-            We're here to help. Reach out to our support team.
-          </p>
-          <a
-            href="mailto:support@expro.dev"
-            className="btn-primary"
-          >
-            Contact Support
-          </a>
+      {/* CTA Section */}
+      <section className="py-20 md:py-32 border-t border-gray-800/50">
+        <div className="container-custom">
+          <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-12 md:p-16 text-center border border-gray-700 overflow-hidden">
+            <div className="absolute top-0 left-0 w-32 h-32 border-t-2 border-l-2 border-gray-600 rounded-tl-2xl"></div>
+            <div className="absolute bottom-0 right-0 w-32 h-32 border-b-2 border-r-2 border-gray-600 rounded-br-2xl"></div>
+            
+            <div className="relative z-10">
+              <h2 className="text-4xl md:text-5xl font-black font-mono text-white mb-4 uppercase tracking-tight">
+                Still have questions?
+              </h2>
+              <p className="text-xl text-gray-400 mb-8 font-mono">
+                We're here to help. Reach out to our support team.
+              </p>
+              <a
+                href="mailto:support@expro.dev"
+                className="group inline-flex items-center justify-center px-10 py-5 text-base font-bold font-mono text-black bg-gray-300 hover:bg-white rounded-md shadow-lg shadow-gray-500/20 hover:shadow-gray-400/30 transform hover:-translate-y-1 transition-all duration-200 uppercase tracking-[0.15em]"
+              >
+                Contact Support
+                <svg className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </div>

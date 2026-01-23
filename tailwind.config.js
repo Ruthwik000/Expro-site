@@ -18,11 +18,19 @@ export default {
           700: '#0369a1',
           800: '#075985',
           900: '#0c4a6e',
+          DEFAULT: '#0ea5e9',
+        },
+        background: '#000000',
+        foreground: '#ffffff',
+        secondary: '#1a1a1a',
+        muted: {
+          foreground: '#a1a1aa'
         }
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Courier New', 'monospace']
+        mono: ['JetBrains Mono', 'Courier New', 'monospace'],
+        serif: ['Georgia', 'serif']
       }
     },
   },
