@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans antialiased;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200;
+  }
+
+  /* Stars Animation */
+  .stars {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: 1780px 1375px #FFF, 1486px 1045px #FFF, 1162px 1542px #FFF, 
+      1716px 1728px #FFF, 431px 1823px #FFF, 1460px 1088px #FFF, 
+      1026px 1519px #FFF, 354px 1473px #FFF, 1529px 1831px #FFF,
+      1203px 1070px #FFF, 1690px 1217px #FFF, 1824px 1502px #FFF;
+    animation: animStar 50s linear infinite;
+  }
+
+  .stars:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: 1780px 1375px #FFF, 1486px 1045px #FFF, 1162px 1542px #FFF, 
+      1716px 1728px #FFF, 431px 1823px #FFF, 1460px 1088px #FFF, 
+      1026px 1519px #FFF, 354px 1473px #FFF, 1529px 1831px #FFF,
+      1203px 1070px #FFF, 1690px 1217px #FFF, 1824px 1502px #FFF;
+  }
+
+  .stars2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: 779px 1331px #FFF, 324px 42px #FFF, 303px 586px #FFF,
+      1312px 276px #FFF, 451px 625px #FFF, 521px 1931px #FFF,
+      1087px 1871px #FFF, 36px 1546px #FFF, 132px 934px #FFF;
+    animation: animStar 100s linear infinite;
+  }
+
+  .stars2:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: 779px 1331px #FFF, 324px 42px #FFF, 303px 586px #FFF,
+      1312px 276px #FFF, 451px 625px #FFF, 521px 1931px #FFF,
+      1087px 1871px #FFF, 36px 1546px #FFF, 132px 934px #FFF;
+  }
+
+  .stars3 {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: 1446px 1848px #FFF, 1301px 1824px #FFF, 1270px 1650px #FFF,
+      1061px 1738px #FFF, 1577px 1397px #FFF, 1481px 1616px #FFF;
+    animation: animStar 150s linear infinite;
+  }
+
+  .stars3:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: 1446px 1848px #FFF, 1301px 1824px #FFF, 1270px 1650px #FFF,
+      1061px 1738px #FFF, 1577px 1397px #FFF, 1481px 1616px #FFF;
+  }
+
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+
+/* CPU Architecture Animations */
+@keyframes cpu-line-animation {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+.cpu-architecture {
+  animation: cpu-line-animation 3s ease-in-out infinite;
+}
+
+.cpu-line-1 {
+  offset-path: path("M 10 20 h 79.5 q 5 0 5 5 v 30");
+}
+
+.cpu-line-2 {
+  offset-path: path("M 180 10 h -69.7 q -5 0 -5 5 v 30");
+}
+
+.cpu-line-3 {
+  offset-path: path("M 130 20 v 21.8 q 0 5 -5 5 h -10");
+}
+
+.cpu-line-4 {
+  offset-path: path("M 170 80 v -21.8 q 0 -5 -5 -5 h -50");
+}
+
+.cpu-line-5 {
+  offset-path: path("M 135 65 h 15 q 5 0 5 5 v 10 q 0 5 -5 5 h -39.8 q -5 0 -5 -5 v -20");
+}
+
+.cpu-line-6 {
+  offset-path: path("M 94.8 95 v -36");
+}
+
+.cpu-line-7 {
+  offset-path: path("M 88 88 v -15 q 0 -5 -5 -5 h -10 q -5 0 -5 -5 v -5 q 0 -5 5 -5 h 14");
+}
+
+.cpu-line-8 {
+  offset-path: path("M 30 30 h 25 q 5 0 5 5 v 6.5 q 0 5 5 5 h 20");
+}
