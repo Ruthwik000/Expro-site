@@ -1,207 +1,245 @@
-import React from 'react';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Terms = () => {
+  const sectionsRef = useRef([]);
+
+  useEffect(() => {
+    sectionsRef.current.forEach((section) => {
+      if (section) {
+        gsap.fromTo(
+          section,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 85%',
+            },
+          }
+        );
+      }
+    });
+  }, []);
+
   return (
-    <div className="container-custom py-16">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Terms of Service</h1>
-        <p className="text-gray-600 mb-8">Last Updated: January 23, 2025</p>
+    <div className="bg-black min-h-screen">
+      {/* Hero */}
+      <section className="relative py-20 md:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div className="container-custom relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black font-mono text-white mb-6 uppercase tracking-tight">
+              Terms and Conditions
+            </h1>
+            <p className="text-xl text-gray-500 font-mono">Last Updated: January 23, 2025</p>
+          </div>
+        </div>
+      </section>
 
-        <div className="prose prose-lg max-w-none">
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Agreement to Terms</h2>
-            <p className="text-gray-700 mb-4">
-              By installing and using ExPro ("the Extension"), you agree to be bound by these Terms of Service. If you do not agree to these terms, do not install or use the Extension.
+      <div className="container-custom pb-20">
+        <div className="max-w-4xl mx-auto space-y-8">
+          
+          <section ref={el => sectionsRef.current[0] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
+            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">Agreement to Terms</h2>
+            <p className="text-gray-400 font-mono leading-relaxed">
+              By installing or using this Chrome extension ("the Extension"), you agree to these Terms and Conditions.
             </p>
           </section>
 
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">License Grant</h2>
-            <p className="text-gray-700 mb-4">
-              Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to:
-            </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-              <li>Install and use ExPro on devices you own or control</li>
-              <li>Use the Extension for personal, non-commercial purposes</li>
-              <li>Access features as described in our documentation</li>
+          <section ref={el => sectionsRef.current[1] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
+            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">1. Use of the Extension</h2>
+            <ul className="space-y-3">
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>The Extension is provided for personal and educational productivity purposes</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>You agree to use the Extension in compliance with all applicable laws and regulations</span>
+              </li>
             </ul>
           </section>
 
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Acceptable Use</h2>
-            <p className="text-gray-700 mb-4">You agree not to:</p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-              <li>Use the Extension for any illegal purpose or in violation of any laws</li>
-              <li>Attempt to reverse engineer, decompile, or disassemble the Extension</li>
-              <li>Remove, alter, or obscure any proprietary notices</li>
-              <li>Use the Extension to harm, harass, or violate the rights of others</li>
-              <li>Attempt to gain unauthorized access to any systems or networks</li>
-              <li>Use the Extension to distribute malware or malicious code</li>
-              <li>Abuse or overload third-party APIs (Groq, Roboflow) integrated with the Extension</li>
+          <section ref={el => sectionsRef.current[2] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
+            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">2. AI-Generated Content Disclaimer</h2>
+            <ul className="space-y-3 mb-4">
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>The Extension uses AI and automated systems</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Responses may be incorrect, misleading, or outdated</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>We do not guarantee accuracy, reliability, or completeness</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>You use AI-generated content at your own risk</span>
+              </li>
             </ul>
           </section>
 
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Features and Functionality</h2>
+          <section ref={el => sectionsRef.current[3] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
+            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">3. User Responsibility</h2>
+            <p className="text-gray-400 font-mono mb-4 leading-relaxed">You are responsible for:</p>
+            <ul className="space-y-3">
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Verifying important information</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Managing your API keys</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Ensuring your use of the Extension does not violate third-party terms</span>
+              </li>
+            </ul>
+          </section>
+
+          <section ref={el => sectionsRef.current[4] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
+            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">4. API Keys</h2>
+            <ul className="space-y-3">
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Users must provide their own API keys where required</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>We do not claim ownership over user API keys</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Misuse or exposure of API keys is the user's responsibility</span>
+              </li>
+            </ul>
+          </section>
+
+          <section ref={el => sectionsRef.current[5] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
+            <h2 className="text-3xl font-black font-mono text-white mb-6 uppercase tracking-tight">5. Feature-Specific Terms</h2>
             
-            <h3 className="text-xl font-semibold text-gray-800 mb-3 mt-6">Developer Tools</h3>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-              <li><strong>Auto Clear Cache:</strong> Clears browser cache on demand</li>
-              <li><strong>Cookie Editor:</strong> Allows viewing and editing of cookies</li>
-              <li><strong>SEO Checker:</strong> Analyzes page SEO elements</li>
-              <li><strong>Font Finder:</strong> Identifies fonts used on web pages</li>
-              <li><strong>Color Picker:</strong> Extracts colors from web pages</li>
-              <li><strong>GitHub AI Agent:</strong> AI-powered GitHub assistance (requires Groq API key)</li>
+            <h3 className="text-xl font-bold font-mono text-blue-400 mb-3">5.1 Ad Blocker</h3>
+            <ul className="space-y-3 mb-6">
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Ad blocking is best-effort only</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Ads may still appear on some websites, including YouTube</span>
+              </li>
             </ul>
 
-            <h3 className="text-xl font-semibold text-gray-800 mb-3 mt-6">Learning Tools</h3>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-              <li><strong>Ad Blocker:</strong> Blocks advertisements on web pages</li>
-              <li><strong>Speed Improver:</strong> Optimizes page loading performance</li>
-              <li><strong>Learning AI Agent:</strong> AI-powered learning assistance (requires Groq API key)</li>
+            <h3 className="text-xl font-bold font-mono text-blue-400 mb-3 mt-6">5.2 Nuclear Mode</h3>
+            <ul className="space-y-3 mb-6">
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Nuclear mode blocks access to all websites except those explicitly whitelisted</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>We are not responsible for data loss, interruptions, or access issues caused by this feature</span>
+              </li>
             </ul>
 
-            <h3 className="text-xl font-semibold text-gray-800 mb-3 mt-6">Productivity Tools</h3>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-              <li><strong>YouTube Focus Mode:</strong> Removes distractions from YouTube</li>
-              <li><strong>Focus Detection:</strong> Detects when you're looking away (requires camera permission and Roboflow API key)</li>
-              <li><strong>Nuclear Mode:</strong> Blocks distracting websites</li>
-            </ul>
-
-            <h3 className="text-xl font-semibold text-gray-800 mb-3 mt-6">Tab Manager</h3>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-              <li><strong>Save Tab Groups:</strong> Saves current tab configurations</li>
-              <li><strong>Restore Sessions:</strong> Restores previously saved tab groups</li>
-            </ul>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Third-Party Services</h2>
-            <p className="text-gray-700 mb-4">
-              ExPro integrates with third-party services (Groq API, Roboflow API). Your use of these services is subject to their respective terms of service and privacy policies. You are responsible for:
-            </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-              <li>Obtaining and maintaining valid API keys</li>
-              <li>Complying with third-party service terms</li>
-              <li>Any costs associated with API usage</li>
-              <li>Securing your API keys</li>
+            <h3 className="text-xl font-bold font-mono text-blue-400 mb-3 mt-6">5.3 Browser Controls</h3>
+            <ul className="space-y-3">
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Cache clearing, cookie editing, and similar features may affect website behavior</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Users should use these features with caution</span>
+              </li>
             </ul>
           </section>
 
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">AI-Generated Content Disclaimer</h2>
-            <p className="text-gray-700 mb-4">
-              Features powered by AI (GitHub AI Agent, Learning AI Agent, Focus Detection) may produce outputs that are:
+          <section ref={el => sectionsRef.current[6] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
+            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">6. No Warranty</h2>
+            <p className="text-gray-400 font-mono mb-4 leading-relaxed">
+              The Extension is provided "as is" and "as available" without warranties of any kind, including:
             </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-              <li>Inaccurate, incomplete, or misleading</li>
-              <li>Not suitable for all purposes</li>
-              <li>Subject to limitations of the underlying AI models</li>
-            </ul>
-            <p className="text-gray-700 mb-4">
-              You are responsible for verifying AI-generated content before relying on it. We do not guarantee the accuracy, reliability, or suitability of AI outputs.
-            </p>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Disclaimer of Warranties</h2>
-            <p className="text-gray-700 mb-4">
-              THE EXTENSION IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:
-            </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-              <li>Warranties of merchantability, fitness for a particular purpose, or non-infringement</li>
-              <li>Warranties that the Extension will be uninterrupted, error-free, or secure</li>
-              <li>Warranties regarding the accuracy or reliability of any content or features</li>
+            <ul className="space-y-3">
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Fitness for a particular purpose</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Accuracy</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Availability</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Security</span>
+              </li>
             </ul>
           </section>
 
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Limitation of Liability</h2>
-            <p className="text-gray-700 mb-4">
-              TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE SHALL NOT BE LIABLE FOR:
+          <section ref={el => sectionsRef.current[7] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
+            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">7. Limitation of Liability</h2>
+            <p className="text-gray-400 font-mono mb-4 leading-relaxed">
+              To the maximum extent permitted by law:
             </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-              <li>Any indirect, incidental, special, consequential, or punitive damages</li>
-              <li>Loss of profits, data, use, or goodwill</li>
-              <li>Service interruptions or errors</li>
-              <li>Damages resulting from third-party services (Groq, Roboflow)</li>
-              <li>Damages resulting from unauthorized access to your data</li>
-            </ul>
-            <p className="text-gray-700 mb-4">
-              Our total liability shall not exceed $10 USD or the amount you paid for the Extension (currently $0).
-            </p>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Indemnification</h2>
-            <p className="text-gray-700 mb-4">
-              You agree to indemnify and hold harmless ExPro and its developers from any claims, damages, losses, or expenses arising from:
-            </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-              <li>Your use of the Extension</li>
-              <li>Your violation of these Terms</li>
-              <li>Your violation of any third-party rights</li>
-              <li>Your use of third-party APIs</li>
+            <ul className="space-y-3 mb-4">
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>We are not liable for any direct, indirect, incidental, or consequential damages resulting from use of the Extension</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>This includes loss of data, productivity, or access to websites</span>
+              </li>
             </ul>
           </section>
 
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Modifications to the Extension</h2>
-            <p className="text-gray-700 mb-4">
-              We reserve the right to:
-            </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-              <li>Modify, suspend, or discontinue any feature at any time</li>
-              <li>Update the Extension with bug fixes and improvements</li>
-              <li>Change these Terms with notice to users</li>
+          <section ref={el => sectionsRef.current[8] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
+            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">8. Termination</h2>
+            <p className="text-gray-400 font-mono mb-4 leading-relaxed">We reserve the right to:</p>
+            <ul className="space-y-3">
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Modify or discontinue the Extension at any time</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Restrict access if these Terms are violated</span>
+              </li>
             </ul>
           </section>
 
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Termination</h2>
-            <p className="text-gray-700 mb-4">
-              We may terminate or suspend your access to the Extension immediately, without notice, for:
-            </p>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-              <li>Violation of these Terms</li>
-              <li>Illegal or harmful conduct</li>
-              <li>Abuse of third-party services</li>
-            </ul>
-            <p className="text-gray-700 mb-4">
-              You may terminate your use by uninstalling the Extension.
+          <section ref={el => sectionsRef.current[9] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
+            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">9. Changes to Terms</h2>
+            <p className="text-gray-400 font-mono leading-relaxed">
+              We may update these Terms at any time. Continued use of the Extension means acceptance of the updated Terms.
             </p>
           </section>
 
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Governing Law</h2>
-            <p className="text-gray-700 mb-4">
-              These Terms are governed by and construed in accordance with applicable laws, without regard to conflict of law principles. Any disputes shall be resolved in the appropriate courts.
+          <section ref={el => sectionsRef.current[10] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
+            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">10. Contact</h2>
+            <p className="text-gray-400 font-mono mb-4 leading-relaxed">
+              For questions regarding these Terms:
+            </p>
+            <p className="text-gray-400 font-mono">
+              Email: <a href="mailto:legal@expro.dev" className="text-blue-400 hover:text-blue-300 underline">legal@expro.dev</a>
             </p>
           </section>
 
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Changes to Terms</h2>
-            <p className="text-gray-700 mb-4">
-              We may update these Terms from time to time. We will notify users of material changes through the Extension or this website. Continued use after changes constitutes acceptance of the updated Terms.
-            </p>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Contact Information</h2>
-            <p className="text-gray-700 mb-4">
-              For questions about these Terms, contact us at:
-            </p>
-            <p className="text-gray-700">
-              Email: <a href="mailto:legal@expro.dev" className="text-primary-600 hover:text-primary-700 underline">legal@expro.dev</a>
-            </p>
-          </section>
-
-          <section className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Severability</h2>
-            <p className="text-gray-700 mb-4">
-              If any provision of these Terms is found to be unenforceable, the remaining provisions will continue in full force and effect.
-            </p>
-          </section>
         </div>
       </div>
     </div>

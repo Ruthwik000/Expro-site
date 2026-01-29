@@ -47,212 +47,212 @@ const Privacy = () => {
         <div className="max-w-4xl mx-auto space-y-8">
           
           <section ref={el => sectionsRef.current[0] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
-            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">Our Commitment to Privacy</h2>
+            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">Introduction</h2>
+            <p className="text-gray-400 font-mono leading-relaxed mb-4">
+              This Privacy Policy explains how we collect, use, and protect information when you use our Chrome extension ("the Extension").
+            </p>
             <p className="text-gray-400 font-mono leading-relaxed">
-              ExPro is built with privacy as a core principle. We believe your data belongs to you. This policy explains what data we collect, how we use it, and your rights regarding your information.
+              By using the Extension, you agree to the practices described in this Privacy Policy.
             </p>
           </section>
 
           <section ref={el => sectionsRef.current[1] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
-            <h2 className="text-3xl font-black font-mono text-white mb-6 uppercase tracking-tight">What Data We Collect</h2>
+            <h2 className="text-3xl font-black font-mono text-white mb-6 uppercase tracking-tight">1. Information We Collect</h2>
             
-            <h3 className="text-xl font-bold font-mono text-blue-400 mb-3">Data Stored Locally</h3>
-            <p className="text-gray-400 font-mono mb-4 leading-relaxed">ExPro stores the following data locally on your device using Chrome's storage API:</p>
+            <h3 className="text-xl font-bold font-mono text-blue-400 mb-3">1.1 User-Provided API Keys</h3>
             <ul className="space-y-3 mb-6">
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span><strong className="text-white">API Keys:</strong> Your Groq API and Roboflow API keys for AI-powered features</span>
+                <span>The Extension allows users to provide their own API keys (e.g., for Large Language Models)</span>
               </li>
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span><strong className="text-white">User Preferences:</strong> Extension settings, feature toggles, and customization options</span>
+                <span>API keys are used only to process user requests and generate responses</span>
               </li>
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span><strong className="text-white">Tab Data:</strong> Saved tab groups and session information for Tab Manager features</span>
+                <span><strong className="text-white">We do not store, sell, share, log, or use API keys for our own benefit</strong></span>
               </li>
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span><strong className="text-white">Cookies:</strong> Cookie data accessed through the Cookie Editor feature</span>
-              </li>
-              <li className="text-gray-400 font-mono flex items-start">
-                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span><strong className="text-white">Cache Data:</strong> Temporary cache information for the Auto Clear Cache feature</span>
+                <span>API keys remain under the user's control</span>
               </li>
             </ul>
 
-            <h3 className="text-xl font-bold font-mono text-blue-400 mb-3 mt-6">Camera/Webcam Usage</h3>
-            <p className="text-gray-400 font-mono mb-4 leading-relaxed">
-              The Focus Detection feature uses your device camera to detect when you're looking away from the screen. This feature:
-            </p>
+            <h3 className="text-xl font-bold font-mono text-blue-400 mb-3 mt-6">1.2 User Queries and AI Responses</h3>
+            <ul className="space-y-3 mb-6">
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Queries entered by the user are sent to the selected AI service only to generate answers requested by the user</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>We do not use this data for advertising, profiling, or resale</span>
+              </li>
+            </ul>
+
+            <h3 className="text-xl font-bold font-mono text-blue-400 mb-3 mt-6">1.3 Focus Detection Feature</h3>
+            <ul className="space-y-3 mb-6">
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span><strong className="text-white">The focus detection feature does not collect, record, store, or transmit user footage</strong></span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>It does not access or store camera images or video</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>The feature only detects the presence of mobile devices for focus-related functionality and does not identify individuals</span>
+              </li>
+            </ul>
+
+            <h3 className="text-xl font-bold font-mono text-blue-400 mb-3 mt-6">1.4 Browser Features</h3>
+            <p className="text-gray-400 font-mono mb-4 leading-relaxed">The Extension provides tools such as:</p>
             <ul className="space-y-3">
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span>Only activates when you explicitly enable Focus Detection</span>
+                <span>GitHub agent</span>
               </li>
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span>Processes video frames locally on your device</span>
+                <span>Learning agent</span>
               </li>
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span>Does not record, store, or transmit any video or images</span>
+                <span>Color picker</span>
               </li>
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span>Uses the Roboflow API for real-time face detection processing</span>
+                <span>Font picker</span>
               </li>
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span>Can be disabled at any time through extension settings</span>
+                <span>Ad blocker</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Cache clearing</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Cookie editing</span>
+              </li>
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>Nuclear mode (site blocking except whitelisted sites)</span>
               </li>
             </ul>
+            <p className="text-gray-400 font-mono mt-4 leading-relaxed">
+              These features operate locally in the user's browser and do not collect personal data unless explicitly required for functionality.
+            </p>
           </section>
 
           <section ref={el => sectionsRef.current[2] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
-            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">How We Use Your Data</h2>
-            <p className="text-gray-400 font-mono mb-4 leading-relaxed">All data collected is used solely for feature functionality:</p>
+            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">2. Information We Do Not Collect</h2>
+            <p className="text-gray-400 font-mono mb-4 leading-relaxed">We do not collect:</p>
             <ul className="space-y-3">
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span><strong className="text-white">API Keys:</strong> Used to authenticate requests to Groq and Roboflow services for AI features</span>
+                <span>Personal identification information (name, email, address)</span>
               </li>
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span><strong className="text-white">Preferences:</strong> Used to customize your extension experience</span>
+                <span>Browsing history for tracking or advertising</span>
               </li>
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span><strong className="text-white">Tab Data:</strong> Used to save and restore your browsing sessions</span>
+                <span>Video or image footage</span>
               </li>
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span><strong className="text-white">Cookies:</strong> Accessed only when you use the Cookie Editor tool</span>
+                <span>Login credentials</span>
               </li>
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span><strong className="text-white">Camera Data:</strong> Processed in real-time for focus detection, never stored</span>
+                <span>Financial information</span>
               </li>
             </ul>
           </section>
 
           <section ref={el => sectionsRef.current[3] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
-            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">Where Data Is Stored</h2>
-            <p className="text-gray-400 font-mono mb-4 leading-relaxed">
-              All data is stored locally on your device using:
-            </p>
-            <ul className="space-y-3 mb-4">
-              <li className="text-gray-400 font-mono flex items-start">
-                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span><strong className="text-white">chrome.storage.local:</strong> For device-specific data</span>
-              </li>
-              <li className="text-gray-400 font-mono flex items-start">
-                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span><strong className="text-white">chrome.storage.sync:</strong> For preferences you want synced across devices (optional)</span>
-              </li>
-            </ul>
-            <p className="text-gray-400 font-mono leading-relaxed">
-              We do not have access to your stored data. It remains on your device and is never transmitted to our servers.
-            </p>
-          </section>
-
-          <section ref={el => sectionsRef.current[4] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
-            <h2 className="text-3xl font-black font-mono text-white mb-6 uppercase tracking-tight">Third-Party Services</h2>
-            
-            <h3 className="text-xl font-bold font-mono text-blue-400 mb-3">Groq API</h3>
-            <p className="text-gray-400 font-mono mb-6 leading-relaxed">
-              When you use AI-powered features (GitHub AI Agent, Learning AI Agent), your queries are sent to Groq's API for processing. Please review <a href="https://groq.com/privacy-policy/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Groq's Privacy Policy</a> for details on how they handle data.
-            </p>
-
-            <h3 className="text-xl font-bold font-mono text-blue-400 mb-3">Roboflow API</h3>
-            <p className="text-gray-400 font-mono leading-relaxed">
-              The Focus Detection feature sends video frames to Roboflow's API for face detection processing. No video is stored. Please review <a href="https://roboflow.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 underline">Roboflow's Privacy Policy</a> for details.
-            </p>
-          </section>
-
-          <section ref={el => sectionsRef.current[5] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
-            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">What We Don't Do</h2>
-            <p className="text-gray-400 font-mono mb-4 leading-relaxed">ExPro does not:</p>
+            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">3. Use of AI and Limitations</h2>
             <ul className="space-y-3">
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span>Collect personal information (name, email, phone number)</span>
+                <span>The Extension uses AI and Large Language Models to generate responses</span>
               </li>
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span>Track your browsing history</span>
+                <span>AI-generated content may be inaccurate, incomplete, or incorrect</span>
               </li>
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span>Use analytics or tracking tools</span>
+                <span>Users should independently verify important information</span>
               </li>
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span>Display advertisements</span>
+                <span>The Extension is provided for informational and productivity purposes only</span>
+              </li>
+            </ul>
+          </section>
+
+          <section ref={el => sectionsRef.current[4] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
+            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">4. Ad Blocking Disclaimer</h2>
+            <ul className="space-y-3">
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>The ad blocker feature does not block ads on all websites</span>
               </li>
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span>Sell or share your data with third parties</span>
+                <span>Ads may not be blocked on certain platforms, including YouTube</span>
               </li>
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span>Store your camera footage or images</span>
+                <span>Ad blocking effectiveness depends on site behavior and browser limitations</span>
+              </li>
+            </ul>
+          </section>
+
+          <section ref={el => sectionsRef.current[5] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
+            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">5. Data Security</h2>
+            <p className="text-gray-400 font-mono mb-4 leading-relaxed">
+              We take reasonable measures to protect user data. However:
+            </p>
+            <ul className="space-y-3">
+              <li className="text-gray-400 font-mono flex items-start">
+                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
+                <span>No system is completely secure</span>
               </li>
               <li className="text-gray-400 font-mono flex items-start">
                 <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span>Access your data remotely</span>
+                <span>Users are responsible for safeguarding their API keys and browser environment</span>
               </li>
             </ul>
           </section>
 
           <section ref={el => sectionsRef.current[6] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
-            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">Your Rights</h2>
-            <p className="text-gray-400 font-mono mb-4 leading-relaxed">You have complete control over your data:</p>
-            <ul className="space-y-3">
-              <li className="text-gray-400 font-mono flex items-start">
-                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span><strong className="text-white">Access:</strong> All your data is stored locally and accessible through Chrome's developer tools</span>
-              </li>
-              <li className="text-gray-400 font-mono flex items-start">
-                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span><strong className="text-white">Delete:</strong> Clear all extension data through the extension settings or by uninstalling</span>
-              </li>
-              <li className="text-gray-400 font-mono flex items-start">
-                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span><strong className="text-white">Export:</strong> Export your settings and tab groups through the extension interface</span>
-              </li>
-              <li className="text-gray-400 font-mono flex items-start">
-                <span className="inline-block w-2 h-2 rounded-full bg-gray-600 mt-2 mr-3 flex-shrink-0"></span>
-                <span><strong className="text-white">Disable Features:</strong> Turn off any feature, including camera access, at any time</span>
-              </li>
-            </ul>
+            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">6. Third-Party Services</h2>
+            <p className="text-gray-400 font-mono mb-4 leading-relaxed">
+              The Extension may interact with third-party APIs or services at the user's request.
+            </p>
+            <p className="text-gray-400 font-mono leading-relaxed">
+              We are not responsible for the privacy practices of third-party services.
+            </p>
           </section>
 
           <section ref={el => sectionsRef.current[7] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
-            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">Data Deletion</h2>
+            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">7. Changes to This Privacy Policy</h2>
             <p className="text-gray-400 font-mono leading-relaxed">
-              When you uninstall ExPro, all locally stored data is automatically removed from your device. You can also manually clear data through the extension settings at any time.
+              We may update this Privacy Policy from time to time. Updates will be reflected by changing the "Last updated" date.
             </p>
           </section>
 
           <section ref={el => sectionsRef.current[8] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
-            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">Children's Privacy</h2>
-            <p className="text-gray-400 font-mono leading-relaxed">
-              ExPro is not directed at children under 13. We do not knowingly collect data from children.
-            </p>
-          </section>
-
-          <section ref={el => sectionsRef.current[9] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
-            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">Changes to This Policy</h2>
-            <p className="text-gray-400 font-mono leading-relaxed">
-              We may update this privacy policy to reflect changes in our practices or legal requirements. We will notify users of significant changes through the extension or on this website. Continued use of ExPro after changes constitutes acceptance of the updated policy.
-            </p>
-          </section>
-
-          <section ref={el => sectionsRef.current[10] = el} className="bg-gray-900/30 backdrop-blur-sm border border-gray-800/50 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300">
-            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">Contact Us</h2>
+            <h2 className="text-3xl font-black font-mono text-white mb-4 uppercase tracking-tight">8. Contact</h2>
             <p className="text-gray-400 font-mono mb-4 leading-relaxed">
-              If you have questions about this privacy policy or how we handle data, please contact us:
+              If you have questions about this Privacy Policy, contact us at:
             </p>
             <p className="text-gray-400 font-mono">
               Email: <a href="mailto:privacy@expro.dev" className="text-blue-400 hover:text-blue-300 underline">privacy@expro.dev</a>
